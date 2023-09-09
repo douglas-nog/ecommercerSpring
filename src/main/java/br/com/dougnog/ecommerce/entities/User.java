@@ -1,9 +1,7 @@
 package br.com.dougnog.ecommerce.entities;
 
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
@@ -13,6 +11,8 @@ import java.io.Serializable;
 @Getter
 @Setter
 @Data
+@Entity
+@Table(name = "tb_user")
 public class User implements Serializable {
 
     @Id
