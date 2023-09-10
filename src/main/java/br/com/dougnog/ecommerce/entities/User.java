@@ -3,8 +3,11 @@ package br.com.dougnog.ecommerce.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.aspectj.weaver.ast.Or;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,4 +25,8 @@ public class User implements Serializable {
     private String email;
     private String phone;
     private String password;
+
+    @OneToMany(mappedBy = "client")
+    @Setter(AccessLevel.NONE)
+    private List<Order> orders = new ArrayList<>();
 }
