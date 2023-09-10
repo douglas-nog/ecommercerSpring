@@ -1,9 +1,9 @@
 package br.com.dougnog.ecommerce.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
-import org.aspectj.weaver.ast.Or;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -29,4 +29,14 @@ public class User implements Serializable {
     @OneToMany(mappedBy = "client")
     @Setter(AccessLevel.NONE)
     private List<Order> orders = new ArrayList<>();
+
+    @Builder
+    public User(Long id, String name, String email, String phone, String password) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.password = password;
+    }
 }
+
