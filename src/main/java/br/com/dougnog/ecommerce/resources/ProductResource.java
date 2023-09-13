@@ -1,8 +1,6 @@
 package br.com.dougnog.ecommerce.resources;
 
-import br.com.dougnog.ecommerce.entities.Order;
 import br.com.dougnog.ecommerce.entities.Product;
-import br.com.dougnog.ecommerce.services.OrderService;
 import br.com.dougnog.ecommerce.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

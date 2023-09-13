@@ -11,10 +11,9 @@ import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
 @Data
 @Entity
+@EqualsAndHashCode(of = "id")
 @Table(name = "tb_user")
 public class User implements Serializable {
 
@@ -28,6 +27,7 @@ public class User implements Serializable {
 
     @OneToMany(mappedBy = "client")
     @Setter(AccessLevel.NONE)
+    @JsonIgnore
     private List<Order> orders = new ArrayList<>();
 
     @Builder

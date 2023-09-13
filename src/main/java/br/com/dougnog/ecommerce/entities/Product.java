@@ -1,6 +1,7 @@
 package br.com.dougnog.ecommerce.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -9,11 +10,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Data
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(of = "id")
 @Table(name = "tb_product")
 public class Product implements Serializable {
 
@@ -30,6 +31,10 @@ public class Product implements Serializable {
     @Setter(AccessLevel.NONE)
     private Set<Category> categories = new HashSet<>();
 
+    @OneToMany(mappedBy = "id.product")
+    @JsonIgnore
+    private Set<OrderItem> items = new HashSet<>();
+
     @Builder
     public Product(Long id, String name, String description, Double price, String imgUrl) {
         this.id = id;
@@ -38,4 +43,5 @@ public class Product implements Serializable {
         this.price = price;
         this.imgUrl = imgUrl;
     }
+
 }
